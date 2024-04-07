@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react"
 // import { useWorkoutsContext } from "../hooks/useWorkoutsContext.js"
 import { WorkoutsContext } from "../context/WorkoutContext.jsx";
+import { useAuthContext } from "../hooks/useAuthContext.js";
 
 
 // components
@@ -8,20 +9,27 @@ import WorkoutDetails from "../components/WorkoutDetails"
 import WorkoutForm from "../components/WorkoutForm"
 
 export default function Home() {
-  // const [workouts, setWorkouts] = useState(null) will use React context here now since we set it up
-  const { workouts, dispatch } = useContext(WorkoutsContext);//destructuring {} not like setting up useState
+  const { workouts, dispatch } = useContext(WorkoutsContext);
+  const {user} = useAuthContext()
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch('http://localhost:4000/api/workouts')
+      const response = await fetch('http://localhost:4000/api/workouts', {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+      })
       const json = await response.json();
 
       if(response.ok){
         dispatch({type: 'SET_WORKOUTS', payload: json})
       }
     }
+
+    if (user) {
     fetchWorkouts()
-  }, [dispatch])
+    }
+  }, [dispatch, user])
 
   return (
     <div className='home'>
