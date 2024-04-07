@@ -90,6 +90,10 @@ header a {
   margin-left: 5px;
 }
 
+h2, h3 {
+  color: #1aac83;
+}
+
 label {
   color: #1aac83;
   font-size: 20px;
