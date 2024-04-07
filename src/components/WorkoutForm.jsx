@@ -10,6 +10,7 @@ export default function WorkoutForm() {
   const [title, setTitle] = useState('')
   const [load, setLoad] = useState('')
   const [reps, setReps] = useState('')
+  const [sets, setSets] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmpytFields] = useState([])
 
@@ -24,6 +25,7 @@ export default function WorkoutForm() {
     const workout = {
       title, 
       load,
+      sets,
       reps
     }
 
@@ -44,6 +46,7 @@ export default function WorkoutForm() {
     if(response.ok) {
       setTitle('')
       setLoad('')
+      setSets('')
       setReps('')
       setError(null);
       setEmpytFields([])
@@ -56,6 +59,7 @@ export default function WorkoutForm() {
   return (
     <div>
       <form action="" className="create" onSubmit={handleSubmit}>
+        <div className="create-container">
         <h3>Add a new workout</h3>
         <label htmlFor="">
           Exercise Title:
@@ -79,6 +83,17 @@ export default function WorkoutForm() {
         />
 
         <label htmlFor="">
+          Sets:
+        </label>
+        <input 
+          type="number" 
+          onChange={(e) => setSets(e.target.value)}
+          value={sets}
+          className={emptyFields.includes('sets') ? 'error' : ''}
+
+        />
+
+        <label htmlFor="">
           Reps:
         </label>
         <input 
@@ -91,6 +106,7 @@ export default function WorkoutForm() {
 
         <button>Add Workout</button>
         {error && <div>{error}</div>}
+        </div>
       </form>
     </div>
   )

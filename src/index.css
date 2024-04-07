@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
 
 /* layout */
 :root {
@@ -6,12 +6,14 @@
   --error: #e7195a;
 }
 body {
-  background: #f1f1f1;
+  background: #222;
   margin: 0;
-  font-family: "Poppins";
+  font-family: "Teko", sans-serif;
+  color: #fff;
+  font-size: 20px;
 }
 header {
-  background: #fff;
+  /* background: #fff; */
 }
 header .container {
   max-width: 1400px;
@@ -22,7 +24,7 @@ header .container {
   justify-content: space-between;
 }
 header a {
-  color: #333;
+  color: #1aac83;
   text-decoration: none;
 }
 .pages{
@@ -40,10 +42,11 @@ header a {
 .workout-details {
   background: #fff;
   border-radius: 4px;
+  width: 70%;
   margin: 20px auto;
   padding: 20px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 3px 5px 5px rgba(83, 244, 129, 0.472);
 }
 .workout-details h4 {
   margin: 0 0 10px 0;
@@ -60,13 +63,38 @@ header a {
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
+  /* background: #f1f1f1; */
+  border-radius: 50%;
+  border: #444 solid 2px;
   padding: 6px;
   border-radius: 50%;
-  color: #333;
+  color: #444;
+  transition: all .2s ease-in-out;
+}
+
+.workout-details span:hover {
+  box-shadow: 0 0 15px rgba(83, 244, 129, 0.472);
+  border: #1aac83 solid 2px;
+  border-radius: 15px;
+  color: #1aac83;
 }
 
 /* new workout form */
+
+.create {
+  border-left: #1aac83 solid 3px;
+}
+
+.create-container {
+  padding: 5px;
+  margin-left: 5px;
+}
+
+label {
+  color: #1aac83;
+  font-size: 20px;
+}
+
 label, input {
   display: block;
 }
@@ -126,4 +154,24 @@ form.signup, form.login {
   padding: 20px;
   background: #fff;
   border-radius: 4px;
+}
+
+@media screen and (max-width: 780px) {
+  body {
+    font-size: 18px;
+  }
+  .home {
+   
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .create {
+    border: #1aac83 solid 3px;
+    border-radius: 15px;
+    /* width: 80%; */
+    
+  }
 }

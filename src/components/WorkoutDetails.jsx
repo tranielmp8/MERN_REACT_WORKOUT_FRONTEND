@@ -34,6 +34,7 @@ export default function WorkoutDetails({workout}) {
     <div className="workout-details">
       <h4>{workout.title}</h4>
       <p><strong>Load (lbs): </strong> {workout.load}</p>
+      <p><strong>Set(s): </strong> X {workout.sets}</p>
       <p><strong>Reps: </strong>{workout.reps}</p>
       <p>{formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
