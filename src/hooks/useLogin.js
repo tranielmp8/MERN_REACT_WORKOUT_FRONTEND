@@ -10,7 +10,7 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch('https://mern-node-workout-api.onrender.com/api/user/login', {
+    const response = await fetch('https://mernnodeworkoutapi-production-ea55.up.railway.app/api/user/login', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email, password})

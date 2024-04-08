@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch('https://mern-node-workout-api.onrender.com/api/workouts', {
+      const response = await fetch('https://mernnodeworkoutapi-production-ea55.up.railway.app/api/workouts', {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
