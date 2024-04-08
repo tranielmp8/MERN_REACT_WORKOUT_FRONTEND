@@ -14,7 +14,10 @@ export default function Navbar() {
     <header>
       <div className="container">
         <Link to="/">
-          <h1>Workout Buddy</h1>
+          <h1>
+            IFlex
+            <span className="material-symbols-outlined weight">fitness_center</span>
+          </h1>
         </Link>
         <nav>
           {user && (
